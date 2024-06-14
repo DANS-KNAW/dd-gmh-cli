@@ -38,7 +38,7 @@
         <main-class>nl.knaw.dans.gmhcli.DdGmhCli</main-class>
         <picocli.version>4.7.5</picocli.version> <!-- TODO: move to parent -->
         <command-name>gmh</command-name>
-        <dd-gmh-api.version>0.1.1-SNAPSHOT</dd-gmh-api.version>
+        <dd-gmh-api.version>0.1.1</dd-gmh-api.version>
     </properties>
 
     <scm>
