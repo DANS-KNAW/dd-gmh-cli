@@ -27,7 +27,7 @@ import java.util.concurrent.Callable;
 
 @Command(name = "find",
          mixinStandardHelpOptions = true,
-         description = "Find NBNs.")
+         description = "Find NBNs by their location. This only works for LTP locations.")
 @RequiredArgsConstructor
 public class Find implements Callable<Integer> {
     @NonNull

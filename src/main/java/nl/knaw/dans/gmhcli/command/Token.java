@@ -26,13 +26,13 @@ import java.util.concurrent.Callable;
 
 @Command(name = "token",
          mixinStandardHelpOptions = true,
-         description = "Get a token for the GMH API.")
+         description = "Get a token for the GMH Service.")
 @RequiredArgsConstructor
 public class Token implements Callable<Integer> {
     private final ApiTokenApi api;
 
     @Option(names = { "-u", "--username" },
-            description = "The username to use for authentication")
+            description = "The username to use for authentication. If not provided, you will be prompted.")
     private String username;
 
     @Option(names = { "-q", "--quiet" },

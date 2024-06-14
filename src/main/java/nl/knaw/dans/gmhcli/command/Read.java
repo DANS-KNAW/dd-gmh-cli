@@ -36,7 +36,7 @@ public class Read implements Callable<Integer> {
     private final UrnnbnIdentifierApi api;
 
     @Parameters(index = "0",
-                description = "The URN:NBN to read from GMH")
+                description = "The URN:NBN to read from the GMH Service.")
     private String urnNbn;
 
     @Option(names = { "-l", "--only-locations" },

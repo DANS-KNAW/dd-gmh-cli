@@ -30,19 +30,19 @@ import java.util.concurrent.Callable;
 @RequiredArgsConstructor
 @Command(name = "write",
          mixinStandardHelpOptions = true,
-         description = "Write a new NBN record to GMH")
+         description = "Write a new NBN record to the GMH Service.")
 public class Write implements Callable<Integer> {
     @NonNull
     private final UrnnbnIdentifierApi api;
 
     @Parameters(index = "0",
                 paramLabel = "nbn",
-                description = "The URN:NBN to write to GMH")
+                description = "The URN:NBN to write to the GMH Service.")
     private String urnNbn;
 
     @Parameters(index = "1..*",
                 paramLabel = "location",
-                description = "The URLs to write to GMH")
+                description = "The locations to which the NBN should resolve.")
     private List<String> urls;
 
     @Option(names = { "-q", "--quiet" },
