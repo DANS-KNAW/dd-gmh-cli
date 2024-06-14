@@ -29,7 +29,7 @@
     <artifactId>dd-gmh-cli</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
-    <name>Dd Gmh Cli</name>
+    <name>DD GMH CLI</name>
     <url>https://github.com/DANS-KNAW/dd-gmh-cli</url>
     <description>Manage NBN records in GMH</description>
     <inceptionYear>2024</inceptionYear>
@@ -37,7 +37,7 @@
     <properties>
         <main-class>nl.knaw.dans.gmhcli.DdGmhCli</main-class>
         <picocli.version>4.7.5</picocli.version> <!-- TODO: move to parent -->
-        <command-name>nbn</command-name>
+        <command-name>gmh</command-name>
         <dd-gmh-api.version>0.1.1-SNAPSHOT</dd-gmh-api.version>
     </properties>
 
