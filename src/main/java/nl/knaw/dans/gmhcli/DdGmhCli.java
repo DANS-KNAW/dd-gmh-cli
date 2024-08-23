@@ -28,14 +28,14 @@ import nl.knaw.dans.gmhcli.command.Token;
 import nl.knaw.dans.gmhcli.command.Write;
 import nl.knaw.dans.gmhcli.config.DdGmhCliConfig;
 import nl.knaw.dans.lib.util.AbstractCommandLineApp;
-import nl.knaw.dans.lib.util.CliVersionProvider;
+import nl.knaw.dans.lib.util.PicocliVersionProvider;
 import nl.knaw.dans.lib.util.ClientProxyBuilder;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(name = "gmh",
          mixinStandardHelpOptions = true,
-         versionProvider = CliVersionProvider.class,
+         versionProvider = PicocliVersionProvider.class,
          description = "Manage NBN records in GMH")
 @Slf4j
 public class DdGmhCli extends AbstractCommandLineApp<DdGmhCliConfig> {
