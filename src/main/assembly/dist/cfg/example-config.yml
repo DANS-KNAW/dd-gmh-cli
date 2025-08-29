@@ -1,6 +1,6 @@
 gmh:
   # The URL of the GMH server (replace with production URL in production environment)
-  url: "https://resolver.tgharvester.dans.knaw.nl/gmh-registration-service/nbn"
+  url: ""
   token: # Fill in a valid token, generated via the token endpoint of the GMH server 
   httpClient:
     timeout: 30s
