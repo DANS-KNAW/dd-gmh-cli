@@ -19,7 +19,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import nl.knaw.dans.gmhcli.client.ApiException;
 import nl.knaw.dans.gmhcli.client.LocationApi;
-import nl.knaw.dans.gmhcli.client.UrnnbnIdentifierApi;
+import nl.knaw.dans.gmhcli.client.UrnNbnIdentifierApi;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 

@@ -18,7 +18,7 @@ package nl.knaw.dans.gmhcli.command;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import nl.knaw.dans.gmhcli.client.UrnnbnIdentifierApi;
+import nl.knaw.dans.gmhcli.client.UrnNbnIdentifierApi;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
@@ -33,7 +33,7 @@ public class Read implements Callable<Integer> {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     @NonNull
-    private final UrnnbnIdentifierApi api;
+    private final UrnNbnIdentifierApi api;
 
     @Parameters(index = "0",
                 description = "The URN:NBN to read from the GMH Service.")

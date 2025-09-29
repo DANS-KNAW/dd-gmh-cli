@@ -19,7 +19,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import nl.knaw.dans.gmhcli.api.NbnLocationsObjectDto;
 import nl.knaw.dans.gmhcli.client.ApiException;
-import nl.knaw.dans.gmhcli.client.UrnnbnIdentifierApi;
+import nl.knaw.dans.gmhcli.client.UrnNbnIdentifierApi;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
@@ -33,7 +33,7 @@ import java.util.concurrent.Callable;
          description = "Write a new NBN record to the GMH Service.")
 public class Write implements Callable<Integer> {
     @NonNull
-    private final UrnnbnIdentifierApi api;
+    private final UrnNbnIdentifierApi api;
 
     @Parameters(index = "0",
                 paramLabel = "nbn",
