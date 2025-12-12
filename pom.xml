@@ -22,7 +22,7 @@
     <parent>
         <groupId>nl.knaw.dans</groupId>
         <artifactId>dd-parent</artifactId>
-        <version>1.9.0</version>
+        <version>1.10.0</version>
     </parent>
 
     <artifactId>dd-gmh-cli</artifactId>
@@ -36,7 +36,6 @@
     <properties>
         <main-class>nl.knaw.dans.gmhcli.DdGmhCli</main-class>
         <command-name>gmh</command-name>
-        <dd-gmh-api.version>0.1.1</dd-gmh-api.version>
     </properties>
 
     <scm>

@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 import nl.knaw.dans.gmhcli.client.ApiClient;
 import nl.knaw.dans.gmhcli.client.ApiTokenApi;
 import nl.knaw.dans.gmhcli.client.LocationApi;
-import nl.knaw.dans.gmhcli.client.UrnnbnIdentifierApi;
+import nl.knaw.dans.gmhcli.client.UrnNbnIdentifierApi;
 import nl.knaw.dans.gmhcli.command.Find;
 import nl.knaw.dans.gmhcli.command.Nbn;
 import nl.knaw.dans.gmhcli.command.Read;
@@ -50,11 +50,11 @@ public class DdGmhCli extends AbstractCommandLineApp<DdGmhCliConfig> {
     @Override
     public void configureCommandLine(CommandLine commandLine, DdGmhCliConfig config) {
         var apiClient = new ApiClient().setBearerToken(config.getGmh().getToken());
-        UrnnbnIdentifierApi nbnApi = new ClientProxyBuilder<ApiClient, UrnnbnIdentifierApi>()
+        UrnNbnIdentifierApi nbnApi = new ClientProxyBuilder<ApiClient, UrnNbnIdentifierApi>()
             .apiClient(apiClient)
             .basePath(config.getGmh().getUrl())
             .httpClient(config.getGmh().getHttpClient())
-            .defaultApiCtor(UrnnbnIdentifierApi::new)
+            .defaultApiCtor(UrnNbnIdentifierApi::new)
             .build();
         LocationApi locationApi = new ClientProxyBuilder<ApiClient, LocationApi>()
                 .apiClient(apiClient)
