@@ -36,7 +36,7 @@
     <properties>
         <main-class>nl.knaw.dans.gmhcli.DdGmhCli</main-class>
         <command-name>gmh</command-name>
-        <dans-nexus-maven-plugin.version>0.4.1-SNAPSHOT</dans-nexus-maven-plugin.version>
+        <dans-nexus-maven-plugin.version>0.4.1</dans-nexus-maven-plugin.version>
     </properties>
 
     <scm>
