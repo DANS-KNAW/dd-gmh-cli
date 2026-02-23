@@ -45,19 +45,22 @@ public class Write implements Callable<Integer> {
 
     static class SingleNbnGroup {
         @Parameters(index = "0",
+                    arity = "1",
                     paramLabel = "nbn",
                     description = "The URN:NBN to write to the GMH Service.")
         String urnNbn;
 
         @Parameters(index = "1..*",
                     paramLabel = "location",
-                    description = "The locations to which the NBN should resolve.")
+                    description = "The locations to which the NBN should resolve.",
+                    arity = "1..*")
         List<String> urls;
     }
 
     static class BatchGroup {
         @Option(names = { "-i", "--input-file" },
-                description = "CSV file with columns NBN, LOCATION. Each row results in a write-operation for that NBN.")
+                description = "CSV file with columns NBN, LOCATION. Each row results in a write-operation for that NBN.",
+                required = true)
         Path inputFile;
 
         @Option(names = { "-w", "--wait" },
@@ -132,7 +135,8 @@ public class Write implements Callable<Integer> {
             System.err.println("Error: Invalid wait duration format. Use e.g. '2s', '500ms'.");
             return 2;
         }
-        try (var is = Files.newInputStream(inputFile); var parser = CSVParser.parse(is, StandardCharsets.UTF_8, CSVFormat.DEFAULT.builder().setHeader().get())) {
+        try (var is = Files.newInputStream(inputFile);
+            var parser = CSVParser.parse(is, StandardCharsets.UTF_8, CSVFormat.DEFAULT.builder().setHeader().get())) {
             for (CSVRecord record : parser) {
                 var nbn = record.get("NBN");
                 var locationField = record.get("LOCATION");
