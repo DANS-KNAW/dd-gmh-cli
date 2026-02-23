@@ -26,7 +26,7 @@
     </parent>
 
     <artifactId>dd-gmh-cli</artifactId>
-    <version>0.2.2-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>DD GMH CLI</name>
     <url>https://github.com/DANS-KNAW/dd-gmh-cli</url>
@@ -41,7 +41,7 @@
 
     <scm>
         <developerConnection>scm:git:ssh://github.com/DANS-KNAW/dd-gmh-cli</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v1.0.0</tag>
     </scm>
 
     <dependencies>
