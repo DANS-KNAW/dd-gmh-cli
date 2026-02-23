@@ -15,6 +15,7 @@
  */
 package nl.knaw.dans.gmhcli.command;
 
+import io.dropwizard.util.Duration;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import nl.knaw.dans.gmhcli.api.NbnLocationsObjectDto;
@@ -31,7 +32,6 @@ import picocli.CommandLine.Parameters;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -140,7 +140,7 @@ public class Write implements Callable<Integer> {
             for (CSVRecord record : parser) {
                 var nbn = record.get("NBN");
                 var locationField = record.get("LOCATION");
-                var locations = List.of(locationField.split("[;,]"));
+                var locations = List.of(locationField);
                 var dto = new NbnLocationsObjectDto().identifier(nbn).locations(locations);
                 var action = "Created";
                 try {
@@ -161,14 +161,12 @@ public class Write implements Callable<Integer> {
                 catch (ApiException e) {
                     System.err.printf("Error for NBN '%s': %s%n", nbn, e.getMessage());
                 }
-                if (!wait.isZero()) {
-                    try {
-                        Thread.sleep(wait.toMillis());
-                    }
-                    catch (InterruptedException ie) {
-                        Thread.currentThread().interrupt();
-                        return 3;
-                    }
+                try {
+                    Thread.sleep(wait.toMilliseconds());
+                }
+                catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                    return 3;
                 }
             }
         }
@@ -182,10 +180,10 @@ public class Write implements Callable<Integer> {
     private Duration parseWaitDuration(String waitDuration) {
         if (waitDuration == null || waitDuration.isBlank()) {
             // 1s as default
-            return Duration.ofSeconds(1);
+            return Duration.seconds(1);
         }
         try {
-            return Duration.parse("PT" + waitDuration.replace("ms", "MILLI"));
+            return Duration.parse(waitDuration);
         }
         catch (Exception e) {
             return null;
