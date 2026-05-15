@@ -1,52 +1,21 @@
 dd-gmh-cli
-===========
+==========
 
-<!-- Remove this comment and extend the descriptions below -->
-
+CLI for dd-gmh
 
 SYNOPSIS
 --------
 
-    dd-gmh-cli { server | check }
+```text
+dd-gmh-cli token [ -u | --username <username> ] [ -q | --quiet ]
+dd-gmh-cli nbn write [ -q | --quiet ] [ -f | --force ] \
+   { <nbn> <location>... | -i | --input-file <inputFile> [ -w | --wait <waitDuration> ] }
+dd-gmh-cli nbn read [ -l | --only-locations ] <nbn>
+dd-gmh-cli nbn find <location>
+```
 
+For more information on a subcommand use:
 
-DESCRIPTION
------------
-
-Manage NBN records in GMH
-
-
-ARGUMENTS
----------
-
-        positional arguments:
-        {server,check}         available commands
-        
-        named arguments:
-        -h, --help             show this help message and exit
-        -v, --version          show the application version and exit
-
-EXAMPLES
---------
-
-<!-- Add examples of invoking this module from the command line or via HTTP other interfaces -->
-    
-
-INSTALLATION AND CONFIGURATION
-------------------------------
-Currently this project is built as an RPM package for RHEL7/CentOS7 and later. The RPM will install the binaries to
-`/opt/dans.knaw.nl/dd-gmh-cli` and the configuration files to `/etc/opt/dans.knaw.nl/dd-gmh-cli`. 
-
-BUILDING FROM SOURCE
---------------------
-Prerequisites:
-
-* Java 11 or higher
-* Maven 3.3.3 or higher
-* RPM
-
-Steps:
-    
-    git clone https://github.com/DANS-KNAW/dd-gmh-cli.git
-    cd dd-gmh-cli 
-    mvn clean install
+```text
+dd-gmh-cli <subcommand> --help
+```
