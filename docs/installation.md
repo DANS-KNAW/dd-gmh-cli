@@ -1,7 +1,7 @@
 Installation
 ============
 
-Currently this project is built as an RPM package for RHEL7/CentOS7 and later. The RPM will install the binaries to
+Currently, this project is built as an RPM package for RHEL 8 and later. The RPM will install the binaries to
 `/opt/dans.knaw.nl/dd-gmh-cli` and the configuration files to `/etc/opt/dans.knaw.nl/dd-gmh-cli`.
 
 Building from source
@@ -9,7 +9,7 @@ Building from source
 
 Prerequisites:
 
-* Java 11 or higher
+* Java 17 or higher
 * Maven 3.3.3 or higher
 * RPM
 
