@@ -51,22 +51,22 @@ public class DdGmhCli extends AbstractCommandLineApp<DdGmhCliConfig> {
     public void configureCommandLine(CommandLine commandLine, DdGmhCliConfig config) {
         var apiClient = new ApiClient().setBearerToken(config.getGmh().getToken());
         UrnNbnIdentifierApi nbnApi = new ClientProxyBuilder<ApiClient, UrnNbnIdentifierApi>()
-            .apiClient(apiClient)
+            .apiClientCtor(ApiClient::new)
             .basePath(config.getGmh().getUrl())
             .httpClient(config.getGmh().getHttpClient())
-            .defaultApiCtor(UrnNbnIdentifierApi::new)
+            .proxyCtor(UrnNbnIdentifierApi::new)
             .build();
         LocationApi locationApi = new ClientProxyBuilder<ApiClient, LocationApi>()
-                .apiClient(apiClient)
+            .apiClientCtor(ApiClient::new)
             .basePath(config.getGmh().getUrl())
             .httpClient(config.getGmh().getHttpClient())
-            .defaultApiCtor(LocationApi::new)
+            .proxyCtor(LocationApi::new)
             .build();
         ApiTokenApi tokenApi = new ClientProxyBuilder<ApiClient, ApiTokenApi>()
-            .apiClient(apiClient)
+            .apiClientCtor(ApiClient::new)
             .basePath(config.getGmh().getUrl())
             .httpClient(config.getGmh().getHttpClient())
-            .defaultApiCtor(ApiTokenApi::new)
+            .proxyCtor(ApiTokenApi::new)
             .build();
 
         log.debug("Configuring command line");
