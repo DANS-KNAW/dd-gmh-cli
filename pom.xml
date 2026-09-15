@@ -30,7 +30,7 @@
 
     <name>DD GMH CLI</name>
     <description>Manage NBN records in GMH</description>
-    <url>https://github.com/DANS-KNAW/dd-gmh-cli</url>
+    <url>https://dans-knaw.github.io/dd-gmh-cli</url>
     <inceptionYear>2024</inceptionYear>
 
     <scm>
