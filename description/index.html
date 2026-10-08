@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Description - dd-gmh-cli</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Description";
+        var mkdocs_page_input_path = "description.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> dd-gmh-cli
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Manual</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Description</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#subcommands">Subcommands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#token">token</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nbn-write">nbn write</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#input-file-format-for-batch-mode">Input file format for batch mode</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nbn-read">nbn read</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nbn-find">nbn find</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../context/">Context</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dev/">Overview</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">dd-gmh-cli</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Manual</li>
+      <li class="breadcrumb-item active">Description</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/DANS-KNAW/dd-gmh-cli/edit/master/docs/description.md">Edit on DANS-KNAW/dd-gmh-cli</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h1>
+<p>The <code>dd-gmh-cli</code> tool provides a command-line interface for interacting with the "Gemeenschappelijke Metadata Harvester" (GMH) service to manage URN:NBN
+(National Bibliographic Number) records.</p>
+<h2 id="subcommands">Subcommands<a class="headerlink" href="#subcommands" title="Permanent link">&para;</a></h2>
+<p>The CLI is organized into the following subcommands:</p>
+<h3 id="token"><code>token</code><a class="headerlink" href="#token" title="Permanent link">&para;</a></h3>
+<p>Retrieves an authentication token for the GMH Service. The token is required to perform write operations. You can provide your username using the <code>-u</code> or
+<code>--username</code> option, and the tool will prompt you for your password securely. If no username is provided, it will prompt for both. Note that generating a new
+token renders the previously generated token invalid. Use <code>-q</code> or <code>--quiet</code> to suppress warning messages.</p>
+<h3 id="nbn-write"><code>nbn write</code><a class="headerlink" href="#nbn-write" title="Permanent link">&para;</a></h3>
+<p>Creates or updates NBN records in the GMH Service.</p>
+<ul>
+<li><strong>Single record mode</strong>: Provide the NBN and one or more locations directly as arguments: <code>dd-gmh-cli nbn write &lt;nbn&gt; &lt;location&gt;...</code></li>
+<li><strong>Batch mode</strong>: Provide a CSV file containing multiple NBNs and locations using the <code>-i</code> or <code>--input-file</code> option. You can also configure a pause between each
+  request using the <code>-w</code> or <code>--wait</code> option (e.g., <code>2s</code>, <code>500ms</code>, defaults to <code>1s</code>).</li>
+<li><strong>Force update</strong>: By default, the command only creates new records. If an NBN is already registered, it will fail unless you provide the <code>-f</code> or <code>--force</code>
+  option to update the existing record.</li>
+</ul>
+<h4 id="input-file-format-for-batch-mode">Input file format for batch mode<a class="headerlink" href="#input-file-format-for-batch-mode" title="Permanent link">&para;</a></h4>
+<p>The input file must be a CSV file with a header row containing exactly the columns <code>NBN</code> and <code>LOCATION</code>. Each row will trigger a write operation for that
+specific NBN. Only one location per NBN is supported per row.</p>
+<p>Example <code>input.csv</code>:</p>
+<pre><code class="language-csv">NBN,LOCATION
+urn:nbn:nl:ui:13-1234-56,https://example.com/dataset/1
+urn:nbn:nl:ui:13-9876-54,https://example.com/dataset/2
+</code></pre>
+<h3 id="nbn-read"><code>nbn read</code><a class="headerlink" href="#nbn-read" title="Permanent link">&para;</a></h3>
+<p>Reads the details of a specific NBN record from the GMH service. Provide the <code>&lt;nbn&gt;</code> as an argument. The command will output the complete JSON representation of
+the NBN record. If you only want to retrieve the locations the NBN resolves to, use the <code>-l</code> or <code>--only-locations</code> option.</p>
+<h3 id="nbn-find"><code>nbn find</code><a class="headerlink" href="#nbn-find" title="Permanent link">&para;</a></h3>
+<p>Finds NBNs that resolve to a specific location. Provide the <code>&lt;location&gt;</code> URL as an argument. Note that the GMH service currently only supports this
+reverse-lookup operation for Long-Term Preservation (LTP) locations.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/DANS-KNAW/dd-gmh-cli" class="fa fa-code-fork" style="color: #fcfcfc"> DANS-KNAW/dd-gmh-cli</a>
+        </span>
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
